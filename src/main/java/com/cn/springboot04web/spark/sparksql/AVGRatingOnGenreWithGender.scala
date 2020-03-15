@@ -17,7 +17,7 @@ class AVGRatingOnGenreWithGender {
     val sparkConf = new SparkConf().setAppName("AVGRatingOnGenreWithGender").setMaster("local[64]")
     val sc = new SparkContext(sparkConf)
     val spark = SparkSession.builder().getOrCreate()
-    spark.sparkContext.setCheckpointDir("E:\\Beta\\Spark\\data\\checkpoint")
+    spark.sparkContext.setCheckpointDir(this.getClass.getClassLoader.getResource("").getPath)
 
     println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()))
     var result = new ArrayBuffer[(String, String, Double)]()
